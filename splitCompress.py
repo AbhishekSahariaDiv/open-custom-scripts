@@ -9,7 +9,7 @@ dir_to_zip = os.environ["FILE_SAVE_DIR"]
 output_dir = os.environ["ARCHIVE_SPLIT_ZIP_DIR"]
 
 # Size limit for zip files (in bytes)
-size_limit = 150 * 1024 * 1024  # 150MB
+size_limit = 200 * 1024 * 1024  # 200MB
 
 zip_file_counter = 1
 current_zip_size = 0
