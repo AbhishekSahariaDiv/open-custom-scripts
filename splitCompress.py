@@ -36,7 +36,15 @@ for file_path in all_files:
 
         current_zip_size = 0
 
-    zip_file.write(file_path, arcname=os.path.relpath(file_path, dir_to_zip))
+    if not os.path.exists(file_path):
+        print(f"File not found: {file_path}")
+        continue
+
+    try:
+        zip_file.write(file_path, arcname=os.path.relpath(file_path, dir_to_zip))
+    except FileNotFoundError:
+        print(f"File not found when trying to write to zip file: {file_path}")
+        continue
 
     current_zip_size += os.path.getsize(file_path)
 
